@@ -8,19 +8,16 @@
 </head>
 <body>
   <script>
+    // Clear the current page content
+    document.body.innerHTML = '';
+
     // Creates new ABC
     var page = new ABC({
-      "type": "blank", // Blank, blob, or overwrite
-      "url": "https://example.com" // Any URL
+      "type": "overwrite", // Use overwrite to replace the page content
+      "url": "https://example.com" // Target URL
     });
 
-    // Set the type
-    page.setType("blank");
-
-    // Set the URL
-    page.setUrl("https://example.com");
-
-    // Open page
+    // Open the page, replacing the current content
     page.open();
   </script>
 </body>
