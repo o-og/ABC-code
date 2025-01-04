@@ -8,17 +8,32 @@
 </head>
 <body>
   <script>
-    // Clear the current page content
+    // Attempt to close the current tab
+    function closeCurrentTab() {
+      window.open('', '_self'); // Required for some browsers
+      window.close(); // Try to close the tab
+    }
+
+    // Clear the page content
     document.body.innerHTML = '';
 
     // Creates new ABC
     var page = new ABC({
-      "type": "overwrite", // Use overwrite to replace the page content
+      "type": "blank", // Blank, blob, or overwrite
       "url": "https://example.com" // Target URL
     });
 
-    // Open the page, replacing the current content
+    // Set the type
+    page.setType("blank");
+
+    // Set the URL
+    page.setUrl("https://example.com");
+
+    // Open the page
     page.open();
+
+    // Try to close the tab
+    closeCurrentTab();
   </script>
 </body>
 </html>
