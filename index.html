@@ -4,15 +4,12 @@
   <title>A:BC Demo</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/gh/FogNetwork/ABC/index.js"></script>
+  <script src="index.js"></script> <!-- Updated to use the local index.js -->
 </head>
 <body>
   <script>
-    // Attempt to close the current tab
-    function closeCurrentTab() {
-      window.open('', '_self'); // Required for some browsers
-      window.close(); // Try to close the tab
-    }
+    // Ask the user for a URL
+    var userUrl = prompt("Please enter the URL:");
 
     // Clear the page content
     document.body.innerHTML = '';
@@ -20,20 +17,21 @@
     // Creates new ABC
     var page = new ABC({
       "type": "blank", // Blank, blob, or overwrite
-      "url": "https://example.com" // Target URL
+      "url": userUrl // Use the URL entered by the user
     });
 
     // Set the type
     page.setType("blank");
 
     // Set the URL
-    page.setUrl("https://example.com");
+    page.setUrl(userUrl);
 
     // Open the page
     page.open();
 
-    // Try to close the tab
-    closeCurrentTab();
+    // Attempt to close the current tab
+    window.open('', '_self'); // Required for some browsers
+    window.close(); // Try to close the tab
   </script>
 </body>
 </html>
